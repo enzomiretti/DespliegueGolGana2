@@ -1,0 +1,8 @@
+# configmap-db.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  namespace: dev
+data:
+  MYSQL_PORT: "3306"
