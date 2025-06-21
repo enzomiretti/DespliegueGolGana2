@@ -3,8 +3,8 @@ name: Build and Push GolGana Images
 on:
   push:
     branches:
-      - master  # se ejecuta automáticamente en cada push a master
-  workflow_dispatch:  # también permite ejecutarlo manualmente
+      - master
+  workflow_dispatch:
 
 jobs:
   build-backend:
@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build backend image
-        run: docker build -t enzomiretti1/golgana-backend:latest DespliegueGolGana-main/appdemo/backend
+        run: docker build -t enzomiretti1/golgana-backend:latest DespliegueGolGana/appdemo/backend
 
       - name: Push backend image
         run: docker push enzomiretti1/golgana-backend:latest
@@ -38,7 +38,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build frontend image
-        run: docker build -t enzomiretti1/golgana-frontend:latest DespliegueGolGana-main/appdemo/frontend
+        run: docker build -t enzomiretti1/golgana-frontend:latest DespliegueGolGana/appdemo/frontend
 
       - name: Push frontend image
         run: docker push enzomiretti1/golgana-frontend:latest
